@@ -3,8 +3,10 @@ const containerMain    = document.querySelector('.container-main')
 const containerCart    = document.querySelector('.container-cart')
 
 export class Vitrine {
-    static products = JSON.parse(localStorage.getItem('products'))
+    
     static listVitrine(products){
+        
+        
         
         containerHeader.innerHTML = `
         <div class="logo">
@@ -41,6 +43,8 @@ export class Vitrine {
 
         const sectionVitrine        = document.createElement('section')
         sectionVitrine.classList.add('section-vitrine')
+        
+        
         for(let i = 0; i < products.length; i++){
             
             const section               = document.createElement('section')
@@ -155,6 +159,7 @@ export class Vitrine {
     }
 
     static qtdProducts(){
+
         const spanQtd    = document.querySelector('.qtd-products')
         const section    = document.querySelector('.cart-overflow')
         spanQtd.innerHTML = section.childElementCount 
@@ -164,8 +169,6 @@ export class Vitrine {
     static totalPrice(){
         const products = JSON.parse(localStorage.getItem('products'))
         const total    = [...products]
-        
-        console.log(products);
         
     }
     static removeCart(event){
