@@ -10,7 +10,6 @@ export class Api{
         const data      = await response.json()
 
         localStorage.setItem('products', JSON.stringify(data))
-        console.log(data)
-
+        Vitrine.listVitrine(data)
     }
 }

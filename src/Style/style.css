@@ -64,6 +64,13 @@
 }
 
 /*Editando section btn-filter*/
+.btn-search{
+    border: none;
+    position: absolute;
+    right: 0;
+    margin-right: 55px;
+
+}
 .btn-filter{
     position: absolute;
     margin: 10px;
@@ -167,6 +174,12 @@
     display: flex;
     flex-wrap: wrap;
     width: 65%;
+    margin-left: 50px;
+}
+.section-vitrine{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
     margin-left: 50px;
 }
 .container-products{

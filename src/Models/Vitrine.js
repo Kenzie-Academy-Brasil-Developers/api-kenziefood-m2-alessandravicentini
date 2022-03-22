@@ -3,18 +3,17 @@ const containerMain    = document.querySelector('.container-main')
 const containerCart    = document.querySelector('.container-cart')
 
 export class Vitrine {
-
-    static listVitrine(){
-        const products = JSON.parse(localStorage.getItem('products'))
-        console.log(products)
-
+    static products = JSON.parse(localStorage.getItem('products'))
+    static listVitrine(products){
+        
         containerHeader.innerHTML = `
         <div class="logo">
             <h1>Kenzie</h1>
             <span>Food</span>
         </div>
-        <input type="text" placeholder="pesquisar por produtos">
-        <img src="src/Style/img/search-removebg-preview.png" alt="">
+        <input class="search" type="text" placeholder="pesquisar por produtos">
+        <button class="btn-search">🔍</button>
+        
         `
         const sectionBtn     = document.createElement('section')
         sectionBtn.classList.add('btn-filter')
@@ -25,6 +24,7 @@ export class Vitrine {
 
         const btnBakery      = document.createElement('button')
         btnBakery.classList.add('btn-bakery')
+        btnBakery.name = 'Panificadora'
         btnBakery.innerHTML  = '<img src="src/Style/img/pao-removebg-preview.png" alt="">Panificadora '
         
         const btnFruits     = document.createElement('button')
@@ -39,11 +39,12 @@ export class Vitrine {
         sectionBtn.append(btnAll,btnBakery,btnFruits,btnDrinks)
         containerMain.appendChild(sectionBtn)
 
-
+        const sectionVitrine        = document.createElement('section')
+        sectionVitrine.classList.add('section-vitrine')
         for(let i = 0; i < products.length; i++){
-
-            const main               = document.createElement('main')
-            main.classList.add('container-products')
+            
+            const section               = document.createElement('section')
+            section.classList.add('container-products')
 
             const figure             = document.createElement('figure')
             figure.classList.add('figure')
@@ -71,9 +72,10 @@ export class Vitrine {
             btnAddCart.innerHTML     =`🛒`
 
             figure.append(img,spanCategoria,h3,p,spanPrice,btnAddCart)
-            main.appendChild(figure)
+            section.appendChild(figure)
 
-            containerMain.appendChild(main)
+            sectionVitrine.appendChild(section)
+            containerMain.appendChild(sectionVitrine)
         }
         containerCart.innerHTML = `
 
