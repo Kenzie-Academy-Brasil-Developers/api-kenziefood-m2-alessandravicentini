@@ -1,3 +1,15 @@
+
+import {Vitrine} from "./Models/Vitrine.js"
+import {Api}  from "./Api/Api.js"
+
+await Api.getProdutcts()
+
+Vitrine.qtdProducts()
+
+const btnAddCart  = document.querySelectorAll('.btn-add__cart')
+btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
+
+
 import { User } from "./Controllers/Routers.js";
 
 // const responseRegister = await User.register("/auth/register", {
@@ -56,3 +68,4 @@ TOKEN
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImlhdCI6MTY0NzkwMTI4OSwiZXhwIjoxNjQ4NzY1Mjg5LCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.tswL95-E2kaV1TAOZ7qfQtdo5u5P6DbifseMMC0aK7c"
 
 */ 
+
