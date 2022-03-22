@@ -6,6 +6,7 @@ export class Vitrine {
 
     static listVitrine(){
         const products = JSON.parse(localStorage.getItem('products'))
+        console.log(products)
 
         containerHeader.innerHTML = `
         <div class="logo">
@@ -62,11 +63,12 @@ export class Vitrine {
             
             const spanPrice          = document.createElement('span')
             spanPrice.classList.add('span-price')
-            spanPrice.innerText      = `R$ ${products[i].preco}`
+            spanPrice.innerText      = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(products[i].preco)}`
 
             const btnAddCart         = document.createElement('button')
+            btnAddCart.id            = `${products[i].id}`
             btnAddCart.classList.add('btn-add__cart')
-            btnAddCart.innerHTML     = '<img src="src/Style/img/carrinho-removebg-preview.png" alt="">'
+            btnAddCart.innerHTML     =`🛒`
 
             figure.append(img,spanCategoria,h3,p,spanPrice,btnAddCart)
             main.appendChild(figure)
@@ -85,11 +87,11 @@ export class Vitrine {
                 </section>
                 <section class="total-products">
                     <h3>Quantidade</h3>
-                    <span>5</span>
+                    <span class="qtd-products"></span>
                 </section>
                 <section class="cart-price">
                     <h3>Total</h3>
-                    <span>R$ 85.00</span>
+                    <span class="total-price">0</span>
                 </section>
             </aside>
         `
@@ -97,15 +99,81 @@ export class Vitrine {
 
     
     static templateCart(event){
-        event.preventDefault()
         
-        const btnCart  = event.target
-        console.log(btnCart)
-    }
-}
-Vitrine.listVitrine()
+        event.preventDefault()
 
-const btnAddCart  = document.querySelectorAll('.btn-add__cart')
-btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
+        const cart      = document.querySelector('.cart-overflow')
+        const products  = JSON.parse(localStorage.getItem('products'))
+        const btnCart   = event.target.id
+
+        products.forEach(current => {
+            if(btnCart == current.id){
+
+                const sectionCart           = document.createElement('section')
+                sectionCart.classList.add('container--cart__product')
+
+                const figureCart            = document.createElement('figure')
+                const imgCart               = document.createElement('img')
+                imgCart.src                 = current.imagem
+                figureCart.appendChild(imgCart)
+
+                const h3Cart                = document.createElement('h3')
+                h3Cart.innerText            = current.nome
+
+                const btnCart               = document.createElement('button')
+                btnCart.id                  = current.id
+                btnCart.classList.add('btn-remove__cart')
+                btnCart.innerText           = '🗑️'
+                btnCart.addEventListener('click', Vitrine.removeCart)
+
+                const divSpanCart           = document.createElement('div')
+
+                const spanCategoryCart      = document.createElement('span')
+                spanCategoryCart.classList.add('span-categoy__cart')
+                spanCategoryCart.innerText  = current.categoria
+
+                const spanPriceCart         = document.createElement('span')
+                spanPriceCart.classList.add('span-price__cart')
+                spanPriceCart.innerText     = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(current.preco)}`
+
+                divSpanCart.append(spanCategoryCart,spanPriceCart)
+
+                sectionCart.append(figureCart,h3Cart,btnCart,divSpanCart)
+                cart.appendChild(sectionCart)
+
+                
+
+
+            }
+            Vitrine.qtdProducts()
+            
+        })
+        Vitrine.totalPrice()
+        
+    }
+
+    static qtdProducts(){
+        const spanQtd    = document.querySelector('.qtd-products')
+        const section    = document.querySelector('.cart-overflow')
+        spanQtd.innerHTML = section.childElementCount 
+        
+    }
+
+    static totalPrice(){
+        const products = JSON.parse(localStorage.getItem('products'))
+        const total    = [...products]
+        
+        console.log(products);
+        
+    }
+    static removeCart(event){
+        const btnCart  = event.target
+        btnCart.parentElement.remove()
+        Vitrine.qtdProducts()
+    }
+    
+}
+
+
 
 

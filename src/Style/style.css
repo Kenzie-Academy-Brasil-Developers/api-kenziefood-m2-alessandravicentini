@@ -244,18 +244,19 @@ figure > .span-category {
 }
 .btn-add__cart{
     position: absolute;
-    margin-left: 250px;
+    margin-left: 260px;
+    margin-top: 10px;
     border-radius: 100%;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     background-color: #ffffff;
     border: none;
+    cursor: pointer;
+    color: rgb(0, 255, 55);
 }
 .btn-add__cart > img{
     border-radius: 100%;
-    cursor: pointer;
 }
-
 /*Edição do Carrinho*/
 
 .container-lateral{
@@ -371,6 +372,7 @@ figure > .span-category {
     line-height: 20px;
     color: #212529;
 }
+
 .total-products{
     display:  flex;
     justify-content: space-between;
