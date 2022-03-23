@@ -1,3 +1,7 @@
+
+const modal = document.querySelector('.modal')
+
+
 class User {
 
     static url = 'https://kenzie-food-api.herokuapp.com'
@@ -11,14 +15,42 @@ class User {
 
     static async register(path, data) {
 
+
+        const response = await fetch(`${this.url}${path}`, {
+
         fetch(`${this.url}${path}`, {
+
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
             },
+
+            "body":JSON.stringify(data)
+        })
+        const dados = await response.json()
+        console.log(dados)
+        console.log(response)
+        
+        if(dados.status === "Error"){
+            modal.style.display = 'flex'
+            modal.innerHTML = 'User Already Exists!'
+            setTimeout(() => {
+                window.location.assign('./login.html')
+            }, 2000);
+            
+        }else{
+            modal.style.display = 'flex'
+            modal.innerHTML = 'Email Cadastrado com sucesso!'
+            setTimeout(() => {
+                window.location.assign('./login.html')
+            }, 2000);
+            
+        }
+
             "body": JSON.stringify(data)
         })
             .then((res) => res)
+
 
     }
 
@@ -34,8 +66,30 @@ class User {
 
         const resData = await response.json()
 
-        this.infoUser.token = resData
 
+        localStorage.setItem('infoUser', JSON.stringify(resData))
+
+        this.infoUser.token = resData
+        console.log(resData)
+        console.log(response)
+        if(resData.status === "Error"){
+            modal.style.display = 'flex'
+            modal.innerHTML = 'Email ou Password incorreto!'
+            
+            setTimeout(() => {
+                //window.location.assign('./login.html')
+            }, 2000);
+            
+        }else{
+            modal.style.display = 'flex'
+            modal.innerHTML = 'Entrando...'
+            setTimeout(() => {
+                //window.location.assign('./login.html')
+            }, 2000);
+            
+        }
+
+        this.infoUser.token = resData
 
     }
 
@@ -96,6 +150,7 @@ class User {
         .then((res) => res)
 
     }
+
 
 
 

@@ -1,18 +1,27 @@
 
 import {Vitrine} from "./Models/Vitrine.js"
 import {Api}  from "./Api/Api.js"
+//import { User } from "./Controllers/Routers.js";
+//import {Register} from "./Models/Register.js"
 
-await Api.getProdutcts()
+await Api.getProduct()
+//Vitrine.listarVitrine()
+/////Vitrine.qtdProducts()
 
-Vitrine.qtdProducts()
-
-const btnAddCart  = document.querySelectorAll('.btn-add__cart')
+const btnAddCart  = document.querySelectorAll('.btn-cart__add')
 btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
+
+
+
+
+//const responseRegister = await User.register("/auth/register") 
+//console.log(responseRegister)
 
 
 import { User } from "./Controllers/Routers.js";
 
 // const responseRegister = await User.register("/auth/register", {
+
 //     "name": "equipe2-t9",
 //     "email": "equipe2-t9@gmail.com",
 //     "password": "2345"
