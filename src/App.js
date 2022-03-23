@@ -23,9 +23,11 @@ btnFruit.addEventListener("click", Filter.listFruit)
 const btnDrink    = document.querySelector('.btn-bebidas')
 btnDrink.addEventListener('click', Filter.listDrink)
 
-/* btn para somar o preço, teste   /*diego */
-//const btnAdd      = document.querySelectorAll('.btn-cart__add')
-//btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
+
+const btnAdd      = document.querySelectorAll('.btn-cart__add')
+btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
+
+
 /**/
 
 

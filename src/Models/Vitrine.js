@@ -52,10 +52,49 @@ export class Vitrine{
         spanQtd.innerHTML = section.childElementCount 
         
     }
-    static totalPrice(event){
-        /*função somar todos os valores */
-        
 
+    static  count = 0
+
+    static totalPrice(event){
+        
+        event.preventDefault()
+        const targetId  = event.target.id
+        const data     = JSON.parse(localStorage.getItem('products'))
+        const dataProd = [...data]
+        
+        const spanPrice   = document.querySelector('.total-price')
+
+        for(let i = 0; i < dataProd.length; i++){
+            if(dataProd[i].id == targetId){
+                
+                Vitrine.count += data[i].preco
+                spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
+                
+            }
+        }
+    }
+    static = contador = 0
+    static decrementarPrice(){
+        const data     = JSON.parse(localStorage.getItem('products'))
+        const dataProd = [...data]
+        const spanPrice   = document.querySelector('.total-price')
+
+        const btnRemove   = document.querySelectorAll('.btn-remove')
+        
+        
+        for(let i = 0; i < btnRemove.length; i++){
+            for(let c = 0; c < dataProd.length; c++){
+                if(btnRemove[i].id == dataProd[c].id){
+                    Vitrine.contador = dataProd[c].preco
+                    
+                }
+                
+            }
+        }
+        Vitrine.count -= Vitrine.contador
+
+        spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
+        
     }
 
     static listarVitrine(product){
@@ -94,7 +133,7 @@ export class Vitrine{
             figure.append(img,h3,p,span,spanPrice,btnAdd)
 
             containerVitrine.appendChild(figure)
-            //console.log(element.preco)
+            
             
         });
         
@@ -103,8 +142,12 @@ export class Vitrine{
 
     static removeCart(event){
         const btnCart  = event.target
+        
         btnCart.parentElement.parentElement.remove()
+
         Vitrine.qtdProducts()
+        Vitrine.decrementarPrice()
+        
     }
 
 }

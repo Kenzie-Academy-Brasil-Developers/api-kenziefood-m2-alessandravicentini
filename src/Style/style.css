@@ -1,39 +1,23 @@
 
-
+.container-principal{
+    width: 100%;
+    margin: auto;
+}
 .cabecalho{
-    margin-left: 120px;
-    position: absolute;
-    width: 1600px;
+    display: flex;
+    width: 85%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    
     height: 72px;
     left: 0px;
     top: 0px;
 }
-.cabecalho > h1{
-    position: absolute;
-    margin-left: 80px;
-    margin-top: 15px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21.6949px;
-    line-height: 33px;
-
-    /* identical to box height */
-
-    /* grey-4 */
-    color: #212529;
-}
-.cabecalho > span{
-    position: absolute;
-    margin-left: 160px;
-    margin-top: 20px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16.2712px;
-    line-height: 24px;
-    /* color-primary */
-    color: #FF2253;
+.cabecalho > .logo-img{
+    
+    width: 180px;
+    margin-left: 110px;
 }
 .cabecalho > input {
     display: flex;
@@ -56,10 +40,7 @@
     border-radius: 12px;
 }
 .cabecalho > a {
-    position: absolute;
-    right: 0;
-    margin-right: 28px;
-    margin-top: 23px;
+    margin-right: 125px;
     font-family: 'Poppins';
     border: none;
     background-color: #E9ECEF;
@@ -76,9 +57,11 @@
 /*editando botoes de filtrar*/
 
 .btn-filter{
+
     display: flex;
-    margin-left: 18px;
-    position: absolute;
+    margin-left: 270px;
+    margin-top: 50px;
+    
     width: 601px;
     height: 48px;
     left: 117px;
@@ -198,16 +181,16 @@
 }
 
 .container-vitrine{
-
+    
     margin-left: 50px;
 }
 .container-vitrine__product{
     display: flex;
-    margin-top: 180px;
-    margin-left: 66px;
+    margin-top: 50px;
+    
+    margin-left: 200px;
     flex-wrap: wrap;
     width: 65%;
-
 }
 .card-product{
     margin-top: 20px;

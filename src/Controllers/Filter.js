@@ -23,7 +23,7 @@ export class Filter {
 
         const data     = JSON.parse(localStorage.getItem('products'))
         Vitrine.listarVitrine(data)
-
+    
     }
 
     static listBakery(event){
