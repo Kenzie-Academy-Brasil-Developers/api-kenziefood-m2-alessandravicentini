@@ -10,8 +10,6 @@ class User {
         information: {}
     }
 
-
-
     static async register(path, data) {
 
         const response = await fetch(`${this.url}${path}`, {
@@ -40,7 +38,7 @@ class User {
             }, 2000);
             
         }
-    
+
     }
 
     static async login(path, data) {
@@ -54,7 +52,7 @@ class User {
         })
 
         const resData = await response.json()
-
+        
         localStorage.setItem('infoUser', JSON.stringify(resData))
 
         this.infoUser.token = resData
@@ -77,8 +75,6 @@ class User {
             
         }
         this.infoUser.token = resData
-
-
     }
 
 
@@ -138,8 +134,6 @@ class User {
         .then((res) => res)
 
     }
-
-
 
 }
 export { User }

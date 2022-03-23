@@ -11,22 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0626b21294.js" crossorigin="anonymous"></script> 
     <title>Kenzie Food</title>
 </head>
 <body>
     <header class="cabecalho">
         <h1>Kenzie</h1>
         <span>Food</span>
-        <input type="text" placeholder="Pesquisar por produto">
+        <input class="search" type="text" placeholder="Pesquisar por produto">
         <a class="login" href="src/Pages/cadastro.html">entrar</a>
     </header>
 
     <section class="btn-filter">
-        <button class="btn-todos">Todos</button>
-        <button class="btn-panificadora">Panificadora</button>
-        <button class="btn-frutas">Frutas</button>
-        <button class="btn-bebidas">Bebidas</button>
+        <button name="btn-all" class="btn-todos">Todos</button>
+        <button name="Panificadora" class="btn-panificadora">Panificadora</button>
+        <button name="Frutas" class="btn-frutas">Frutas</button>
+        <button name="Bebidas" class="btn-bebidas">Bebidas</button>
     </section>
     
     <main class="container-vitrine">
@@ -47,7 +48,7 @@
         </section>
         <section class="total-produtos">
             <h3>Total:</h3>
-            <span>0</span>
+            <span class="total-price">0</span>
         </section>
     </aside>
 

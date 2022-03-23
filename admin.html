@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/Style/style-adminPage.css">
+    <script src="https://kit.fontawesome.com/0626b21294.js" crossorigin="anonymous"></script>
+    <title>KenzieFood Admin</title>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Kenzie</h1> <h2>Food</h2>
+        </div>
+        
+        <input type="text" placeholder="Pesquisar por produto">
+
+    </header>
+
+    <main>
+
+        <section class="buttons">
+
+            <div>
+                <button>Todos</button>
+
+                <button>Panificadora</button>
+
+                <button>Frutas</button>
+
+                <button>Bebidas</button>
+            </div>
+
+            <button class="addProduct">Adicionar novo produto</button>
+
+        </section>
+
+
+        <section class="productsList">
+
+            <ul>
+                <div id="listHeader">
+
+                    <p>Produto</p>
+                    <p>Categorias</p>
+                    <p>Descrição</p>
+                    <p>Ações</p>
+
+                </div>
+
+                <li> 
+                    <p>Panqueca de banana com aveia</p>  
+
+                    <span><p>Bebidas</p> <p>Frutas</p></span> 
+
+                    <p>Esta receita serve muito bem 2 pessoas</p> 
+
+                    <div>
+                    <button><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                
+                </li>
+
+
+            </ul>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="src/App.js" type="module"></script>
+</body>
+</html>
