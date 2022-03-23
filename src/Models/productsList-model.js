@@ -30,7 +30,6 @@ class ProductsList {
 
             ul.appendChild(li)
         })
-              
     }
 }
 

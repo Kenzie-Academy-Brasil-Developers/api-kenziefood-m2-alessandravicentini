@@ -1,20 +1,35 @@
 
 import { ProductsList } from "./Models/productsList-model.js";
-
-ProductsList.createLine(data)
-
-
-import {Vitrine} from "./Models/Vitrine.js"
 import {Api}  from "./Api/Api.js"
+import {Filter}         from "./Controllers/Filter.js"
+import { Vitrine } from "./Models/Vitrine.js";
 //import { User } from "./Controllers/Routers.js";
 //import {Register} from "./Models/Register.js"
-
 await Api.getProduct()
-//Vitrine.listarVitrine()
-/////Vitrine.qtdProducts()
 
-const btnAddCart  = document.querySelectorAll('.btn-cart__add')
-btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
+/**/
+const searchBar   = document.querySelector('.search')
+searchBar.addEventListener('keyup' , Filter.searchBar)
+
+const btnListAll  = document.querySelector('.btn-todos')
+btnListAll.addEventListener('click', Filter.listAll)
+
+const btnBakery   = document.querySelector('.btn-panificadora')
+btnBakery.addEventListener('click', Filter.listBakery)
+
+const btnFruit    = document.querySelector('.btn-frutas')
+btnFruit.addEventListener("click", Filter.listFruit)
+
+const btnDrink    = document.querySelector('.btn-bebidas')
+btnDrink.addEventListener('click', Filter.listDrink)
+
+
+const btnAdd      = document.querySelectorAll('.btn-cart__add')
+btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
+
+
+/**/
+
 
 
 
@@ -23,7 +38,9 @@ btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
 //console.log(responseRegister)
 
 
-import { User } from "./Controllers/Routers.js";
+
+// const responseRegister = await User.register("/auth/register", {
+
 
 // const responseRegister = await User.register("/auth/register", {
 
@@ -57,9 +74,9 @@ import { User } from "./Controllers/Routers.js";
 // })
 
 // const responsePathMyProducts = await User.pathMyProducts("/my/products/", 1, {
-	
+
 // 	"nome": "Bolinho"
-	
+
 // })
 
 // const responsePathMyProducts = await User.pathMyProducts("/my/products/", 1) 

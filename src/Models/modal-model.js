@@ -27,9 +27,7 @@ export class Modal {
         modal.appendChild(contents)
         containerModal.appendChild(modal)
         Modal.main.appendChild(containerModal)
-   }
-
-   
+    }
 
 }
 
