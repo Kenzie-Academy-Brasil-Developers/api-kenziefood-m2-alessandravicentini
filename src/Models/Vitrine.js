@@ -1,184 +1,97 @@
-const containerHeader  = document.querySelector('.container-header')
-const containerMain    = document.querySelector('.container-main')
-const containerCart    = document.querySelector('.container-cart')
+const containerVitrine  = document.querySelector('.container-vitrine__product')
 
-export class Vitrine {
-    
-    static listVitrine(products){
-        
-        
-        
-        containerHeader.innerHTML = `
-        <div class="logo">
-            <h1>Kenzie</h1>
-            <span>Food</span>
-        </div>
-        <input class="search" type="text" placeholder="pesquisar por produtos">
-        <button class="btn-search">🔍</button>
-        
-        `
-        const sectionBtn     = document.createElement('section')
-        sectionBtn.classList.add('btn-filter')
-    
-        const btnAll         = document.createElement('button')
-        btnAll.classList.add('btn-all')
-        btnAll.innerText     = 'Todos'
+export class Vitrine{
 
-        const btnBakery      = document.createElement('button')
-        btnBakery.classList.add('btn-bakery')
-        btnBakery.name = 'Panificadora'
-        btnBakery.innerHTML  = '<img src="src/Style/img/pao-removebg-preview.png" alt="">Panificadora '
-        
-        const btnFruits     = document.createElement('button')
-        btnFruits.classList.add('btn-fruit')
-        btnFruits.innerHTML  = '<img src="src/Style/img/frutas0-removebg-preview.png" alt="">Fruta'
-        
-        const btnDrinks      = document.createElement('button')
-        btnDrinks.classList.add('btn-drinks')
-        btnDrinks.innerHTML  = '<img src="src/Style/img/bebidas0-removebg-preview.png" alt="">Bebidas'
-        
+    static listarVitrine(product){
+        console.log(product)
+        const produto  = [...product]
+        produto.forEach(element => {
+            const figure  = document.createElement('figure')
+            figure.classList.add("card-product")
 
-        sectionBtn.append(btnAll,btnBakery,btnFruits,btnDrinks)
-        containerMain.appendChild(sectionBtn)
+            const img        = document.createElement('img')
+            img.src          = element.imagem
 
-        const sectionVitrine        = document.createElement('section')
-        sectionVitrine.classList.add('section-vitrine')
-        
-        
-        for(let i = 0; i < products.length; i++){
-            
-            const section               = document.createElement('section')
-            section.classList.add('container-products')
+            const h3         = document.createElement('h3')
+            h3.innerHTML     = element.nome
 
-            const figure             = document.createElement('figure')
-            figure.classList.add('figure')
+            const p          = document.createElement('p')
+            p.innerText      = element.descricao
 
-            const img                = document.createElement('img')
-            img.src                  = products[i].imagem
+            const span       = document.createElement('span')
+            span.classList.add('card-product__category')
+            span.innerText   = element.categoria
 
-            const spanCategoria      = document.createElement('span')
-            spanCategoria.classList.add('span-category')
-            spanCategoria.innerText  = products[i].categoria
-            
-            const h3                 = document.createElement('h3')
-            h3.innerText             = products[i].nome
+            const spanPrice  = document.createElement('span')
+            spanPrice.classList.add('card-product__price')
+            spanPrice.innerText = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(element.preco)}`
 
-            const p                  = document.createElement('p')
-            p.innerText              = products[i].descricao
-            
-            const spanPrice          = document.createElement('span')
-            spanPrice.classList.add('span-price')
-            spanPrice.innerText      = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(products[i].preco)}`
+            const btnAdd     = document.createElement('button')
+            btnAdd.classList.add('btn-cart__add')
+            btnAdd.id        = element.id
+            btnAdd.innerHTML = '&#x1F6D2'
 
-            const btnAddCart         = document.createElement('button')
-            btnAddCart.id            = `${products[i].id}`
-            btnAddCart.classList.add('btn-add__cart')
-            btnAddCart.innerHTML     =`🛒`
+            figure.append(img,h3,p,span,spanPrice,btnAdd)
 
-            figure.append(img,spanCategoria,h3,p,spanPrice,btnAddCart)
-            section.appendChild(figure)
+            containerVitrine.appendChild(figure)
+        });
 
-            sectionVitrine.appendChild(section)
-            containerMain.appendChild(sectionVitrine)
-        }
-        containerCart.innerHTML = `
-
-            <aside class="container-lateral">
-                <section class="header-cart">
-                    <img src="src/Style/img/cart.png" alt="">
-                    <h3>Carrinho</h3>
-                </section>
-                <section class="cart-overflow">
-                    
-                </section>
-                <section class="total-products">
-                    <h3>Quantidade</h3>
-                    <span class="qtd-products"></span>
-                </section>
-                <section class="cart-price">
-                    <h3>Total</h3>
-                    <span class="total-price">0</span>
-                </section>
-            </aside>
-        `
     }
 
-    
     static templateCart(event){
         
         event.preventDefault()
 
-        const cart      = document.querySelector('.cart-overflow')
+        const cart      = document.querySelector('.cart')
         const products  = JSON.parse(localStorage.getItem('products'))
         const btnCart   = event.target.id
 
         products.forEach(current => {
             if(btnCart == current.id){
 
-                const sectionCart           = document.createElement('section')
-                sectionCart.classList.add('container--cart__product')
+                const figure    = document.createElement('figure')
+                figure.classList.add('figure--cart')
 
-                const figureCart            = document.createElement('figure')
-                const imgCart               = document.createElement('img')
-                imgCart.src                 = current.imagem
-                figureCart.appendChild(imgCart)
+                const imgCART   = document.createElement('img')
+                imgCART.src     = `${current.imagem}`
 
-                const h3Cart                = document.createElement('h3')
-                h3Cart.innerText            = current.nome
+                const h3        =  document.createElement('h3')
+                h3.innerText    =  `${current.nome}`
 
-                const btnCart               = document.createElement('button')
-                btnCart.id                  = current.id
-                btnCart.classList.add('btn-remove__cart')
-                btnCart.innerText           = '🗑️'
-                btnCart.addEventListener('click', Vitrine.removeCart)
+                const btnRemove =  document.createElement('button')
+                btnRemove.classList.add('btn-remove')
+                btnRemove.id = current.id
+                btnRemove.innerHTML  = '&#x1F5D1;&#xFE0F;'
+                btnRemove.addEventListener('click', Vitrine.removeCart)
 
-                const divSpanCart           = document.createElement('div')
+                const h4Categoria    = document.createElement('h4')
+                h4Categoria.classList.add('categoria')
+                h4Categoria.innerText = `${current.categoria}`
 
-                const spanCategoryCart      = document.createElement('span')
-                spanCategoryCart.classList.add('span-categoy__cart')
-                spanCategoryCart.innerText  = current.categoria
+                const h4Preco         = document.createElement('h4')
+                h4Preco.classList.add('preco')
+                h4Preco.innerText     = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(current.preco)}`
 
-                const spanPriceCart         = document.createElement('span')
-                spanPriceCart.classList.add('span-price__cart')
-                spanPriceCart.innerText     = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(current.preco)}`
-
-                divSpanCart.append(spanCategoryCart,spanPriceCart)
-
-                sectionCart.append(figureCart,h3Cart,btnCart,divSpanCart)
-                cart.appendChild(sectionCart)
-
-                
-
-
+                figure.append(imgCART,h3,btnRemove,h4Categoria,h4Preco)
+                cart.appendChild(figure)
             }
             Vitrine.qtdProducts()
-            
+
         })
-        Vitrine.totalPrice()
+
         
     }
 
-    static qtdProducts(){
-
-        const spanQtd    = document.querySelector('.qtd-products')
-        const section    = document.querySelector('.cart-overflow')
-        spanQtd.innerHTML = section.childElementCount 
-        
-    }
-
-    static totalPrice(){
-        const products = JSON.parse(localStorage.getItem('products'))
-        const total    = [...products]
-        
-    }
     static removeCart(event){
         const btnCart  = event.target
         btnCart.parentElement.remove()
         Vitrine.qtdProducts()
     }
-    
+
+    static qtdProducts(){
+        const spanQtd    = document.querySelector('.qtd-total')
+        const section    = document.querySelector('.cart')
+        spanQtd.innerHTML = section.childElementCount 
+        
+    }
 }
-
-
-
-

@@ -15,16 +15,42 @@
     <title>Kenzie Food</title>
 </head>
 <body>
-    <header class="container-header">
+    <header class="cabecalho">
+        <h1>Kenzie</h1>
+        <span>Food</span>
+        <input type="text" placeholder="Pesquisar por produto">
+        <a class="login" href="src/Pages/cadastro.html">entrar</a>
     </header>
-    
-    <section class="container">
-        <section class="container-main"></section>
 
-        <section class="container-cart">
+    <section class="btn-filter">
+        <button class="btn-todos">Todos</button>
+        <button class="btn-panificadora">Panificadora</button>
+        <button class="btn-frutas">Frutas</button>
+        <button class="btn-bebidas">Bebidas</button>
+    </section>
+    
+    <main class="container-vitrine">
+        <section class="container-vitrine__product"></section>
+    </main>
+
+    <aside class="container-cart">
+        <section class="header-cart">
+            <img src="src/Style/img/cart.png">
+            <h3>Carrinho</h3>
+        </section>
+        <section class="cart">
             
         </section>
-    </section>
+        <section class="qtd-produtos">
+            <h3>Quantidade:</h3>
+            <span class="qtd-total">0</span>
+        </section>
+        <section class="total-produtos">
+            <h3>Total:</h3>
+            <span>0</span>
+        </section>
+    </aside>
+
     <script type="module" src="./src/App.js" ></script>
 </body>
 </html>
