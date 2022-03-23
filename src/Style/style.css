@@ -79,12 +79,16 @@
     height: 48px;
     left: 117px;
     top: 122px;
-
+    border: none;
     /* color-primary */
-    background: #FF2253;
-
-    /* color-primary */
+    
+    background-color: #E9ECEF;
+    /* color-primary
+    color: #F8F9FA;
     border: 1.5px solid #FF2253;
+    background: #FF2253;
+    */
+    
     box-sizing: border-box;
     border-radius: 32px;
     cursor: pointer;
@@ -96,9 +100,11 @@
     text-align: center;
 
     /* grey-1 */
-    color: #F8F9FA;
+    
 
 }
+
+
 .btn-panificadora{
     display: flex;
     flex-direction: row;
@@ -179,7 +185,12 @@
     /* grey-4 */
     color: #212529;
 }
-
+.hover{
+    
+    color: #F8F9FA;
+    border: 1.5px solid #FF2253;
+    background: #FF2253;
+}
 .container-vitrine{
     
     margin-left: 50px;
