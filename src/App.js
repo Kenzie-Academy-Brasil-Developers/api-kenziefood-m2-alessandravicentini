@@ -1,4 +1,9 @@
 
+import { ProductsList } from "./Models/productsList-model.js";
+
+ProductsList.createLine(data)
+
+
 import {Vitrine} from "./Models/Vitrine.js"
 import {Api}  from "./Api/Api.js"
 //import { User } from "./Controllers/Routers.js";
@@ -77,4 +82,5 @@ TOKEN
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImlhdCI6MTY0NzkwMTI4OSwiZXhwIjoxNjQ4NzY1Mjg5LCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.tswL95-E2kaV1TAOZ7qfQtdo5u5P6DbifseMMC0aK7c"
 
 */ 
+
 

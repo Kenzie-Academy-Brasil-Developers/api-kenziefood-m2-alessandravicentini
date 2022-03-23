@@ -1,0 +1,81 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header input {
+    width: 300px;
+    padding: 15px;
+}
+
+header div {
+   display: flex;
+}
+
+
+
+.buttons {
+    display: flex;
+
+}
+
+
+ul div{
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+span {
+    display: flex;
+}
+span p {
+    margin-right: 10px;
+}
+
+
+
+
+.containerModal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerModal .modal{
+    width: 300px;
+    height: 300px;
+    border: solid 1px;
+    background-color: white;
+    position: relative;
+}
+
+.containerModal .modal button.closeModal{
+    color: red;
+    background: none;
+    border: none;
+    font-size: 25px;
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        height: 72px;
+    }
+    
+    header div {
+        display: flex;
+    }
+}
