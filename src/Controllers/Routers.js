@@ -1,3 +1,4 @@
+
 const modal = document.querySelector('.modal')
 
 
@@ -14,11 +15,16 @@ class User {
 
     static async register(path, data) {
 
+
         const response = await fetch(`${this.url}${path}`, {
+
+        fetch(`${this.url}${path}`, {
+
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
             },
+
             "body":JSON.stringify(data)
         })
         const dados = await response.json()
@@ -40,6 +46,12 @@ class User {
             }, 2000);
             
         }
+
+            "body": JSON.stringify(data)
+        })
+            .then((res) => res)
+
+
     }
 
     static async login(path, data) {
@@ -53,6 +65,7 @@ class User {
         })
 
         const resData = await response.json()
+
 
         localStorage.setItem('infoUser', JSON.stringify(resData))
 
@@ -75,6 +88,9 @@ class User {
             }, 2000);
             
         }
+
+        this.infoUser.token = resData
+
     }
 
 
@@ -134,6 +150,9 @@ class User {
         .then((res) => res)
 
     }
+
+
+
 
 }
 export { User }

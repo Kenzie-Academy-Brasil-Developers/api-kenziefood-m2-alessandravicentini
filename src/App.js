@@ -13,8 +13,14 @@ btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
 
 
 
+
 //const responseRegister = await User.register("/auth/register") 
 //console.log(responseRegister)
+
+
+import { User } from "./Controllers/Routers.js";
+
+// const responseRegister = await User.register("/auth/register", {
 
 //     "name": "equipe2-t9",
 //     "email": "equipe2-t9@gmail.com",
