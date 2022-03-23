@@ -40,6 +40,7 @@ class User {
             }, 2000);
             
         }
+    
     }
 
     static async login(path, data) {
@@ -75,6 +76,9 @@ class User {
             }, 2000);
             
         }
+        this.infoUser.token = resData
+
+
     }
 
 
@@ -134,6 +138,8 @@ class User {
         .then((res) => res)
 
     }
+
+
 
 }
 export { User }

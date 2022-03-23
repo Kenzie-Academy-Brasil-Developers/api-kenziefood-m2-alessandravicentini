@@ -5,8 +5,7 @@ import {Api}  from "./Api/Api.js"
 //import {Register} from "./Models/Register.js"
 
 await Api.getProduct()
-//Vitrine.listarVitrine()
-/////Vitrine.qtdProducts()
+
 
 const btnAddCart  = document.querySelectorAll('.btn-cart__add')
 btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
@@ -16,6 +15,9 @@ btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
 //const responseRegister = await User.register("/auth/register") 
 //console.log(responseRegister)
 
+
+
+// const responseRegister = await User.register("/auth/register", {
 //     "name": "equipe2-t9",
 //     "email": "equipe2-t9@gmail.com",
 //     "password": "2345"
