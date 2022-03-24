@@ -117,18 +117,18 @@ class User {
 
     }
 
-    static async pathMyProducts(path, id) {
+    static async pathMyProducts(path, id, data) {
 
-        fetch(`${this.url}${path}:${id}`, {
+        fetch(`${this.url}${path}${id}`, {
             "method": "PATCH",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.infoUser.token}`
+                "Authorization": `Bearer ${this.infoUser}`
             },
             "body": JSON.stringify(data)
         })
-        .then((res) => res)
-
+        .then((res) => console.log(res))
+        
 
     }
 

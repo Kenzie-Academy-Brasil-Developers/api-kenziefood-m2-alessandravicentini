@@ -53,22 +53,18 @@ class ProductsList {
         btnEditProduct.forEach(btn => btn.addEventListener('click', (event) => { 
             const li = event.currentTarget.parentNode.parentNode
             const productInfo = JSON.parse(localStorage.getItem('product'))
-            
+            let qualquer = []
 
             productInfo.forEach(product => { 
                 
                 if(event.currentTarget.id == product.id) {
-                    console.log(product)
+                    qualquer.push(product)
+                    
+                   ProductsControllers.formEditProduct(qualquer)
                 }
                 
             })
-            /* const productInfo = []
-            for(let i = 0; i < li.children.length; i++) {
-                productInfo.push(li.children[i].innerText)
-                productInfo.push(li.children[i].src)
-            } */
-            
-            ProductsControllers.formEditProduct(productInfo)
+                     
             
         }))
 
