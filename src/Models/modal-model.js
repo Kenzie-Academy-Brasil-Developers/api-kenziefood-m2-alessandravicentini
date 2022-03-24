@@ -1,34 +1,62 @@
-export class Modal {
+class Modal {
 
     static main = document.querySelector('main')
 
     static removeModal(e){
 
-        const modalParent = e.target.parentNode.parentNode
-        const modalSelector = document.querySelector('.containerModal')
+        const modalParent = e.target.parentNode
+        Modal.main.removeChild(modalParent)
 
-        Modal.main.removeChild(modalSelector)
     }
 
-    static createModal(contents){
+    static createModal(contents, classModal){
 
         const containerModal = document.createElement('section')
-        containerModal.classList.add('containerModal')
-        
-        const modal = document.createElement('div')
-        modal.classList.add('modal')
-        
+        containerModal.classList.add(classModal)
+          
         const closeModal = document.createElement('button')
         closeModal.classList.add('closeModal')
         closeModal.innerText = 'X'
-        closeModal.addEventListener('click', Modal.closeModal)
+
+        closeModal.addEventListener('click', this.removeModal)
         
-        modal.appendChild(closeModal)
-        modal.appendChild(contents)
-        containerModal.appendChild(modal)
+        containerModal.appendChild(closeModal)
+        containerModal.appendChild(contents)
+        
         Modal.main.appendChild(containerModal)
     }
+
+   static createModalStatus(msg, idModal) {
+        const status = document.createElement('div')    
+
+        status.innerHTML = `
+            <div><p>Status</p></div>
+            <div id=${idModal}><p>${msg}</p></div>
+        `
+
+        
+        this.createModal(status)
+
+    }
+
+   static showModalStatus() {
+        
+        if (AAAAAAAAAA === true) {
+            this.createModalStatus('Produto adicionado com sucesso', 'modalSuccess')
+        }
+
+        else {
+            this.createModalStatus('Ocorreu algum erro, o produto não foi adicionado', 'modalError')
+        }
+
+   }
+   
 
 }
 
 export {Modal}
+
+
+let AAAAAAAAAA = false
+
+// Modal.showModalStatus()

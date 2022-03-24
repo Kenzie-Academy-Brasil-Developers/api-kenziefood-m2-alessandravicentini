@@ -31,14 +31,14 @@ btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
 
 
 
-
-
 //const responseRegister = await User.register("/auth/register") 
 //console.log(responseRegister)
 
+import { User } from "./Controllers/Routers.js";
+import { ProductsControllers } from "./Controllers/products-control.js"
 
-
-// const responseRegister = await User.register("/auth/register", {
+await User.getMyProducts('/my/products')
+// ProductsControllers.productForm()
 
 
 // const responseRegister = await User.register("/auth/register", {
@@ -57,8 +57,14 @@ btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
 // })
 
 
-
-// const responseMyProduscts = await User.getMyProducts("/my/products")
+// const responseMyProduscts = await User.getMyProducts("/my/proucts", {
+//	"nome": "Bolinho",
+//	"preco": 5,
+//	"categoria": "Doce",
+//	"imagem": "https://picsum.photos/200/300",
+//	"descricao" : "Lorem ipsum",
+	
+// })
 
 
 
@@ -98,5 +104,6 @@ TOKEN
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImlhdCI6MTY0NzkwMTI4OSwiZXhwIjoxNjQ4NzY1Mjg5LCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.tswL95-E2kaV1TAOZ7qfQtdo5u5P6DbifseMMC0aK7c"
 
 */ 
+
 
 
