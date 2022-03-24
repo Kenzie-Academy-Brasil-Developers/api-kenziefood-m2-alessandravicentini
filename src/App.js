@@ -11,17 +11,15 @@ await Api.getProduct()
 const searchBar   = document.querySelector('.search')
 searchBar.addEventListener('keyup' , Filter.searchBar)
 
-const btnListAll  = document.querySelector('.btn-todos')
-btnListAll.addEventListener('click', Filter.listAll)
+const btnTodos = document.querySelector('.btn-todos')
+btnTodos.addEventListener('click', Filter.listAll)
 
-const btnBakery   = document.querySelector('.btn-panificadora')
-btnBakery.addEventListener('click', Filter.listBakery)
+const buttons = document.querySelectorAll('.btn-filter button')
+const filterButtons = Array.prototype.slice.call(buttons).slice(1,4)
 
-const btnFruit    = document.querySelector('.btn-frutas')
-btnFruit.addEventListener("click", Filter.listFruit)
-
-const btnDrink    = document.querySelector('.btn-bebidas')
-btnDrink.addEventListener('click', Filter.listDrink)
+filterButtons.forEach((button) => {
+	button.addEventListener('click', Filter.listFiltered)
+})
 
 
 const btnAdd      = document.querySelectorAll('.btn-cart__add')
