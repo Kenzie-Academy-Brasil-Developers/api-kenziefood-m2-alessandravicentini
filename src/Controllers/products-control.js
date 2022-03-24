@@ -1,31 +1,57 @@
 import { Modal } from "./../Models/modal-model.js"  
 import { User } from "./Routers.js"
+
 class ProductsControllers {
 
-    static productForm() {
+    static formNewProduct() {
         
         const divForm = document.createElement('div')
         
         divForm.innerHTML = `
             <form>
-                <label for="input">Nome do Produto</label> 
-                <input type="text"> <br>
+                <label for="input">Nome do Produto</label> <br>
+                <input type="text" name="nome"> <br>
                 <label for="input">Descrição</label> <br>
-                <input type="text"> <br>
+                <input type="text" name="descricao"> <br>
                 <label for="input">Categorias</label> <br>
-                <input type="button"></button> <br>
+                <input type="checkbox" name="categoria" value="Panificadora"> <br>
+                <input type="checkbox" name="categoria" value="Frutas"> <br>
+                <input type="checkbox" name="categoria" value="Bebidas"> <br>
                 <label for="input">Valor do produto</label> <br>
-                <input type="number"> <br>
+                <input type="text" name="preco"> <br>
                 <label for="input">Link da imagem</label> <br>
-                <input type="url"><br>
-                <button class='cadastrar'>cadastrar</button>
-            </form>
-            
+                <input type="url" name="imagem"><br>
+                <button type="submit" class='register'>cadastrar</button>
+            </form>  
         `
         
-        
-        
         Modal.createModal(divForm, 'productForm')
+        
+        const btnSubmit = document.querySelector('form')
+        
+        btnSubmit.addEventListener('submit', e => {
+            e.preventDefault()
+            
+            const inputs = [...e.target]
+            const obj = {}
+
+            console.log(inputs)
+            inputs.forEach(current => {
+                if(current.name){
+                    const name = current.name
+                    const value = current.value
+
+                    obj[name] = value
+                }
+            })
+            console.log(obj)
+            User.postMyProducts('/my/products', obj)
+
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000)
+        })
+        //ProductsControllers.postProduct(e)
         
         
     }
@@ -33,23 +59,37 @@ class ProductsControllers {
     static newProduct() {
         
         const btnNewProduct = document.querySelector('.addProduct')
-        btnNewProduct.addEventListener('click', this.productForm)
-
-        
-
+        btnNewProduct.addEventListener('click', this.formNewProduct)
         
     }
 
-    static postProduct(event){
-        event.preventDefault()
-        
-        console.log('ola')
-    }
 
-    
-    static editProduct() {
-        const btnEditProduct = document.querySelector('.btn-edit')
-        btnEditProduct.addEventListener('click', this.productForm)
+
+    static formEditProduct(productInfo) {
+        
+        const divForm = document.createElement('div')
+        
+        divForm.innerHTML = `
+            <form>
+                <label for="input"></label> <br>
+                <input type="text" name="nome" value="${productInfo[2]}"> <br>
+                <label for="input">Descrição</label> <br>
+                <input type="text" name="descricao" value="${productInfo[6]}"> <br>
+                <label for="input">Categorias</label> <br>
+                <input type="checkbox" name="categoria" value="Panificadora"> <br>
+                <input type="checkbox" name="categoria" value="Frutas"> <br>
+                <input type="checkbox" name="categoria" value="Bebidas"> <br>
+                <label for="input">Valor do produto</label> <br>
+                <input type="text" name="preco" value="${productInfo[8]}"> <br>
+                <label for="input">Link da imagem</label> <br>
+                <input type="url" name="imagem" value="${productInfo[1]}"><br>
+                <button type="submit" class='register'>cadastrar</button>
+            </form>  
+        `
+        
+        Modal.createModal(divForm, 'productForm')
+
+
     }
 
     static deleteProduct() {
@@ -65,7 +105,7 @@ class ProductsControllers {
        
     }
 
-
+    
 
 }
 

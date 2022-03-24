@@ -101,7 +101,7 @@ class User {
     }
 
 
-    static async postMyProducts(path) {
+    static async postMyProducts(path, obj) {
 
         const response = await fetch(`${this.url}${path}`, {
             "method": "POST",
@@ -109,7 +109,7 @@ class User {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${this.infoUser}`
             },
-            "body": JSON.stringify(data)
+            "body": JSON.stringify(obj)
         })
         const data    = await response.json()
         console.log(data)

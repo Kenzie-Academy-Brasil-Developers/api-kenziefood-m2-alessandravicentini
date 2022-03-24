@@ -5,13 +5,10 @@ import {ProductsControllers} from "../Controllers/products-control.js"
 
 User.getMyProducts('/my/products')
 Modal.showModalStatus()
+
 ProductsControllers.newProduct()
-//ProductsControllers.editProduct()
 
-
-
-
-
-
+ProductsControllers.editProduct()
+/* ProductsControllers.postProduct() */
 
 

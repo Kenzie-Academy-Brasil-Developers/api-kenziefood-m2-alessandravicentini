@@ -1,13 +1,11 @@
-
-
-
+import { ProductsControllers } from "../Controllers/products-control.js"
+import { User } from "../Controllers/Routers.js"
 
 class ProductsList {
 
     static createList(data) {
         //ProductsList.createList(responseData)
-        console.log(data)
-        
+            
         const ul = document.querySelector('.ul-list')
         
 
@@ -29,8 +27,8 @@ class ProductsList {
                     <button id='${id}'  class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
                     <button id='${id}'  class="btn-delete"><i class="fa-solid fa-trash"></i></button>
                 </div>
-                `
-
+                `      
+                
             
             
             ul.appendChild(li)
@@ -40,16 +38,45 @@ class ProductsList {
 
         const btnDeleteProduct = document.querySelectorAll('.btn-delete')
         btnDeleteProduct.forEach(btn => btn.addEventListener('click',  () =>{
+            ProductsControllers.deleteProduct()
 
-            console.log(btn.id)
+            
             User.deleteMyProducts('/my/products/', btn.id)
             
-            setTimeout(() => {
+            /* setTimeout(() => {
                 window.location.reload()
-            }, 2000);
+            }, 2000); */
             
         }))
 
+        const btnEditProduct = document.querySelectorAll('.btn-edit')
+        btnEditProduct.forEach(btn => btn.addEventListener('click', (event) => { 
+            const li = event.currentTarget.parentNode.parentNode
+            const productInfo = JSON.parse(localStorage.getItem('product'))
+            
+
+            productInfo.forEach(product => { 
+                
+                if(event.currentTarget.id == product.id) {
+                    console.log(product)
+                }
+                
+            })
+            /* const productInfo = []
+            for(let i = 0; i < li.children.length; i++) {
+                productInfo.push(li.children[i].innerText)
+                productInfo.push(li.children[i].src)
+            } */
+            
+            ProductsControllers.formEditProduct(productInfo)
+            
+        }))
+
+    
+        
+        
+        
+        
     }
     
 }
