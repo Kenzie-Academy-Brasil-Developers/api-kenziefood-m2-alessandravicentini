@@ -39,20 +39,6 @@ class Modal {
 
     }
 
-   static showModalStatus() {
-        let AAAAAAAAAA = false
-        
-        if (AAAAAAAAAA === true) {
-            this.createModalStatus('Produto adicionado com sucesso', 'modalSuccess')
-        }
-
-        else {
-            this.createModalStatus('Ocorreu algum erro, o produto não foi adicionado', 'modalError')
-        }
-
-}
-
-
 }
 
 export {Modal}
