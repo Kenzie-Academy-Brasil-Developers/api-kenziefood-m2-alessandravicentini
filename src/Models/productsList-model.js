@@ -1,8 +1,6 @@
-
-
 class ProductsList {
 
-    static createLine(data) {
+    static createList(data) {
         const ul = document.querySelector('ul')
         console.log(ul)
         data.forEach(product => {
@@ -21,8 +19,8 @@ class ProductsList {
                 <p>${descricao}</p> 
 
                 <div>
-                    <button><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn-delete"><i class="fa-solid fa-trash"></i></button>
                 </div>
                 `
 

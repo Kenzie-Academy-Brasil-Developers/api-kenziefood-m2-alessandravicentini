@@ -1,8 +1,7 @@
 const containerVitrine  = document.querySelector('.container-vitrine__product')
 
 export class Vitrine{
-
-    
+   
     
     static templateCart(event){
         
