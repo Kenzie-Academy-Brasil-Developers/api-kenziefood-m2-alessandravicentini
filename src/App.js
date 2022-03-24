@@ -39,7 +39,7 @@ import { User } from "./Controllers/Routers.js";
 import { ProductsControllers } from "./Controllers/products-control.js"
 
 await User.getMyProducts('/my/products')
-ProductsControllers.productForm()
+// ProductsControllers.productForm()
 
 
 // const responseRegister = await User.register("/auth/register", {

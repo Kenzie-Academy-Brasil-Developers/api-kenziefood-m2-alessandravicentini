@@ -1,4 +1,4 @@
-import { Modal } from "../models/modal-model.js"
+import { Modal } from "./../Models/modal-model.js"
     
 class ProductsControllers {
 
@@ -53,7 +53,7 @@ class ProductsControllers {
 export {ProductsControllers}
 /* ProductsControllers.newProduct()
 ProductsControllers.editProduct() */
-ProductsControllers.deleteProduct()
+// ProductsControllers.deleteProduct()
 
 import { User } from "./Routers.js"
 

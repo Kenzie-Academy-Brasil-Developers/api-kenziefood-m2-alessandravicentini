@@ -59,4 +59,4 @@ export {Modal}
 
 let AAAAAAAAAA = false
 
-Modal.showModalStatus()
+// Modal.showModalStatus()
