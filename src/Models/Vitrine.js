@@ -2,6 +2,8 @@ const containerVitrine  = document.querySelector('.container-vitrine__product')
 
 export class Vitrine{
 
+    
+    
     static templateCart(event){
         
         event.preventDefault()
@@ -10,8 +12,14 @@ export class Vitrine{
         const products  = JSON.parse(localStorage.getItem('products'))
         const btnCart   = event.target.id
 
-        products.forEach(current => {
+        products.map(current => {
             if(btnCart == current.id){
+                
+                const spanPrice   = document.querySelector('.total-price')
+            
+                Vitrine.count += current.preco
+                spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
+                
 
                 const figure    = document.createElement('figure')
                 figure.classList.add('figure--cart')
@@ -25,7 +33,7 @@ export class Vitrine{
                 const btnRemove =  document.createElement('button')
                 btnRemove.classList.add('btn-remove')
                 btnRemove.id = current.id
-                btnRemove.innerHTML  = '<i class="fa-solid fa-trash"></i>'
+                btnRemove.innerHTML  = '🗑️'//<i class="fa-solid fa-trash"></i>
                 btnRemove.addEventListener('click', Vitrine.removeCart)
 
                 const h4Categoria    = document.createElement('h4')
@@ -36,15 +44,13 @@ export class Vitrine{
                 h4Preco.classList.add('preco')
                 h4Preco.innerText     = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(current.preco)}`
 
+
                 figure.append(imgCART,h3,btnRemove,h4Categoria,h4Preco)
                 cart.appendChild(figure)
-               //Vitrine.totalPrice()
             }
-            Vitrine.qtdProducts()
-
         })
 
-        
+        Vitrine.qtdProducts()
     }
     static qtdProducts(){
         const spanQtd     = document.querySelector('.qtd-total')
@@ -54,25 +60,7 @@ export class Vitrine{
     }
 
     static  count = 0
-
-    static totalPrice(event){
-        
-        event.preventDefault()
-        const targetId  = event.target.id
-        const data     = JSON.parse(localStorage.getItem('products'))
-        const dataProd = [...data]
-        
-        const spanPrice   = document.querySelector('.total-price')
-
-        for(let i = 0; i < dataProd.length; i++){
-            if(dataProd[i].id == targetId){
-                
-                Vitrine.count += data[i].preco
-                spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
-                
-            }
-        }
-    }
+    
     static = contador = 0
     static decrementarPrice(){
         const data     = JSON.parse(localStorage.getItem('products'))
@@ -91,8 +79,11 @@ export class Vitrine{
                 
             }
         }
-        Vitrine.count -= Vitrine.contador
-
+        if(Vitrine.count > 0) {
+                Vitrine.count -= Vitrine.contador
+        }else{
+                Vitrine.count  = 0
+        }
         spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
         
     }
@@ -106,8 +97,15 @@ export class Vitrine{
             const figure  = document.createElement('figure')
             figure.classList.add("card-product")
 
+            const divImg     = document.createElement('div');
+            divImg.classList.add('div-img')
+
             const img        = document.createElement('img')
             img.src          = element.imagem
+            
+
+            const divTexto   = document.createElement('div')
+            divTexto.classList.add('div-texto')
 
             const h3         = document.createElement('h3')
             h3.innerHTML     = element.nome
@@ -119,6 +117,10 @@ export class Vitrine{
             span.classList.add('card-product__category')
             span.innerText   = element.categoria
 
+        
+            const divBtn        = document.createElement('div')
+            divBtn.classList.add('container-btn__card')
+
             const spanPrice  = document.createElement('span')
             spanPrice.classList.add('card-product__price')
             spanPrice.innerText = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(element.preco)}`
@@ -129,11 +131,13 @@ export class Vitrine{
             btnAdd.innerHTML = '&#x1F6D2'
             btnAdd.addEventListener('click', Vitrine.templateCart)
 
+            divImg.appendChild(img)
+            divTexto.append(h3, p, span)
+            divBtn.append(spanPrice, btnAdd)
 
-            figure.append(img,h3,p,span,spanPrice,btnAdd)
+            figure.append(divImg,divTexto, divBtn)
 
             containerVitrine.appendChild(figure)
-            
             
         });
         
@@ -142,12 +146,18 @@ export class Vitrine{
 
     static removeCart(event){
         const btnCart  = event.target
+        const products  = JSON.parse(localStorage.getItem('products'))
+        const prod      = [...products]
         
-        btnCart.parentElement.parentElement.remove()
-
+        prod.forEach(current => {
+            if(btnCart.id == current.id){
+                Vitrine.count -=  current.preco
+                btnCart.parentElement.remove()
+                
+            }
+        })
         Vitrine.qtdProducts()
-        Vitrine.decrementarPrice()
-        
+        const spanPrice   = document.querySelector('.total-price')
+        spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
     }
-
 }

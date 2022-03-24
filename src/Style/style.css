@@ -211,14 +211,23 @@
     height: 397px;
     left: 456px;
     top: 220px;
+    padding: 3px;
     box-shadow: 1px 1px 10px 1px rgba(37, 37, 37, 0.301);
 }
-.card-product > h3{
-    position: static;
-    left: 0%;
-    right: 12.21%;
-    top: 0%;
-    bottom: 84.39%;
+.div-img{
+    width: 298px;
+    height: 200px;
+}
+.div-img > img {
+    width: 298px;
+    height: 200px;
+}
+.div-texto{
+    width: 298px;
+    height: 120px;
+    margin-top: 15px;
+}
+.div-texto > h3 {
     margin-left:10px;
 
     /* Title1 */
@@ -232,9 +241,9 @@
 
     color: #000000;
 }
-.card-product > p {
+
+.div-texto > p {
     margin-left:10px;
-    margin-top: 15px;
     /* Caption */
     font-family: 'Poppins';
     font-style: normal;
@@ -248,7 +257,7 @@
     color: #868E96;
 }
 
-.card-product__category{
+.div-texto > .card-product__category{
     margin-left:10px;
     margin-top: 5px;
     display: block;
@@ -257,40 +266,37 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
-    
-    /* identical to box height, or 133% */
-    
-    /* grey-3 */
-    color: #868E96;
+    color: #4b4c4d;
+}
+.container-btn__card{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
 }
 
+
 .card-product__price{
-    margin-left:10px;
-    display: block;
-    margin-top: 25px;
-    /* Title2 */
+
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    
-    /* identical to box height, or 143% */
-    
-    /* grey-4 */
+    margin-left: 15px;
+
     color: #212529;
 }
 
 .btn-cart__add{
-    position: absolute;
-    margin-left: 269px;
-    margin-top: -22px;
     border: none;
     border-radius: 100%;
     cursor: pointer;
     /* color-secondary-50 */
-    background: #E4F7EF;
-    
+    padding: 0;
+    margin-right: 15px;
+    background: #ffffff;
 }
 
 .container-cart{
@@ -416,7 +422,9 @@
     margin-top: 5px;
     margin-right: 5px;
     border: none;
+    padding: 0;
     cursor: pointer;
+    
     background-color: #E4F7EF;
 }
 
