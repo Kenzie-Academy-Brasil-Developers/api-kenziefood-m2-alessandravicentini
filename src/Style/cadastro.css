@@ -1,14 +1,16 @@
 
 /*css editando formulario de cadastro*/
+
 .container {
     display: flex;
     align-items: center;
     width: 100%;
     height:850px;
-    
 }
 
+
 .container-cadastro{
+    
     margin: 0 auto;
     width: 280px;
     height: 350px;
@@ -78,9 +80,7 @@
     font-family:'Nunito', sans-serif; 
     color:  rgba(0, 0, 0, 0.87);
 }
-.container-cadastro > form > .btn-login{
-    margin-bottom: -85px
-}
+
 .home{
     position: absolute;
     margin-bottom: 300px;
