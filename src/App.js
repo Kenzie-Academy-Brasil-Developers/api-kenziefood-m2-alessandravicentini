@@ -27,8 +27,7 @@ btnDrink.addEventListener('click', Filter.listDrink)
 const btnAdd      = document.querySelectorAll('.btn-cart__add')
 btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
 
-
-/**/
+/*******************/
 
 
 
