@@ -3,7 +3,7 @@ const containerVitrine  = document.querySelector('.container-vitrine__product')
 export class Vitrine{
 
     static listarVitrine(product){
-        console.log(product)
+        
         const produto  = [...product]
         produto.forEach(element => {
             const figure  = document.createElement('figure')

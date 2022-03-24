@@ -1,3 +1,4 @@
+import { ProductsList } from "../Models/productsList-model.js"
 
 const modal = document.querySelector('.modal')
 
@@ -17,8 +18,6 @@ class User {
 
 
         const response = await fetch(`${this.url}${path}`, {
-
-        fetch(`${this.url}${path}`, {
 
             "method": "POST",
             "headers": {
@@ -43,14 +42,9 @@ class User {
             modal.innerHTML = 'Email Cadastrado com sucesso!'
             setTimeout(() => {
                 window.location.assign('./login.html')
-            }, 2000);
-            
-        }
+            }, 2000)
 
-            "body": JSON.stringify(data)
-        })
-            .then((res) => res)
-
+        } 
 
     }
 
@@ -77,7 +71,7 @@ class User {
             modal.innerHTML = 'Email ou Password incorreto!'
             
             setTimeout(() => {
-                //window.location.assign('./login.html')
+                window.location.assign('./login.html')
             }, 2000);
             
         }else{
@@ -96,15 +90,18 @@ class User {
 
     static async getMyProducts(path) {
 
+        const infoUser = JSON.parse(localStorage.getItem('infoUser'))
+        console.log(infoUser)
         const response = await fetch(`${this.url}${path}`, {
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.infoUser.token}`
+                "Authorization": `Bearer ${infoUser}`
             }
         })
         const responseData = await response.json()
-        return responseData
+        console.log(responseData)
+        ProductsList.createList(responseData)
     }
 
 

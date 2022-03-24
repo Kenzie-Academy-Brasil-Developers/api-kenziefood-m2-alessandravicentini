@@ -2,6 +2,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+header {
+    margin-bottom: 40px;
+}
+
 header input {
     width: 300px;
     padding: 15px;
@@ -9,13 +13,32 @@ header input {
 
 header div {
    display: flex;
+   align-items: center;
 }
 
+h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 7px;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FF2253;
+}
 
 
 .buttons {
     display: flex;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
 
+.buttons button {
+    padding: 15px 20px;
+    border-radius: 32px;
+    border-style: none;
 }
 
 
@@ -35,10 +58,13 @@ span p {
     margin-right: 10px;
 }
 
+.btn-edit, .btn-delete {
+    border-radius: 90px;
+    border-style: none;
+}
 
 
-
-.containerModal{
+.productForm {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -49,7 +75,7 @@ span p {
     align-items: center;
 }
 
-.containerModal .modal{
+.productForm div{
     width: 300px;
     height: 300px;
     border: solid 1px;
@@ -57,15 +83,31 @@ span p {
     position: relative;
 }
 
-.containerModal .modal button.closeModal{
-    color: red;
-    background: none;
-    border: none;
-    font-size: 25px;
-    position: absolute;
-    top: 2px;
-    right: 5px;
+.productForm button.closeModal{
+    color: #868E96;
+    background: #E9ECEF;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 14px;
+    padding: 9px;
+    position: relative;
     cursor: pointer;
+}
+
+
+#modalSuccess {
+    margin-top: 20px;
+    width: 496px;
+    height: 65px;
+    border-bottom: #39DF8F solid 8px;
+
+}
+
+#modalError  {
+    
+    width: 496px;
+    height: 65px;
+    border-bottom:#FF2253 solid 8px;
 }
 
 @media (min-width: 800px) {

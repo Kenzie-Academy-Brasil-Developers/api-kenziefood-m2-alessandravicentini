@@ -1,11 +1,6 @@
-
-import { ProductsList } from "./Models/productsList-model.js";
-
-ProductsList.createLine(data)
-
-
 import {Vitrine} from "./Models/Vitrine.js"
 import {Api}  from "./Api/Api.js"
+
 //import { User } from "./Controllers/Routers.js";
 //import {Register} from "./Models/Register.js"
 
@@ -13,17 +8,20 @@ await Api.getProduct()
 //Vitrine.listarVitrine()
 /////Vitrine.qtdProducts()
 
+
 const btnAddCart  = document.querySelectorAll('.btn-cart__add')
 btnAddCart.forEach(btn => btn.addEventListener('click', Vitrine.templateCart))
-
-
 
 
 //const responseRegister = await User.register("/auth/register") 
 //console.log(responseRegister)
 
-
 import { User } from "./Controllers/Routers.js";
+import { ProductsControllers } from "./Controllers/products-control.js"
+
+await User.getMyProducts('/my/products')
+ProductsControllers.productForm()
+
 
 // const responseRegister = await User.register("/auth/register", {
 
@@ -41,8 +39,14 @@ import { User } from "./Controllers/Routers.js";
 // })
 
 
-
-// const responseMyProduscts = await User.getMyProducts("/my/products")
+// const responseMyProduscts = await User.getMyProducts("/my/proucts", {
+//	"nome": "Bolinho",
+//	"preco": 5,
+//	"categoria": "Doce",
+//	"imagem": "https://picsum.photos/200/300",
+//	"descricao" : "Lorem ipsum",
+	
+// })
 
 
 
@@ -82,5 +86,6 @@ TOKEN
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImlhdCI6MTY0NzkwMTI4OSwiZXhwIjoxNjQ4NzY1Mjg5LCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.tswL95-E2kaV1TAOZ7qfQtdo5u5P6DbifseMMC0aK7c"
 
 */ 
+
 
 
