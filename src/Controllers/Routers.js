@@ -23,9 +23,10 @@ class User {
         console.log(dados)
         console.log(response)
         
-        if(dados.status === "Error"){
+        if(response.status == 409){
             modal.style.display = 'flex'
             modal.innerHTML = 'User Already Exists!'
+            
             setTimeout(() => {
                 window.location.assign('./login.html')
             }, 2000);
@@ -50,17 +51,18 @@ class User {
             },
             "body": JSON.stringify(data)
         })
-
-        const resData = await response.json()
-        
-        localStorage.setItem('infoUser', JSON.stringify(resData))
-
-        this.infoUser.token = resData
-        console.log(resData)
+        const dados = await response.json()
+        console.log(dados)
         console.log(response)
-        if(resData.status === "Error"){
-            modal.style.display = 'flex'
-            modal.innerHTML = 'Email ou Password incorreto!'
+        
+        localStorage.setItem('infoUser', JSON.stringify(dados))
+
+        this.infoUser.token = dados
+        
+        if(dados.error){
+
+                modal.style.display = 'flex'
+                modal.innerHTML = 'Email ou Password incorreto!'
             
             setTimeout(() => {
                 //window.location.assign('./login.html')
@@ -74,7 +76,7 @@ class User {
             }, 2000);
             
         }
-        this.infoUser.token = resData
+        this.infoUser.token = dados
     }
 
 
