@@ -1,9 +1,9 @@
 
-import { ProductsList } from "./Models/productsList-model.js";
+//import { ProductsList } from "./Models/productsList-model.js";
 import {Api}  from "./Api/Api.js"
 import {Filter}         from "./Controllers/Filter.js"
 import { Vitrine } from "./Models/Vitrine.js";
-//import { User } from "./Controllers/Routers.js";
+import { User } from "./Controllers/Routers.js";
 //import {Register} from "./Models/Register.js"
 await Api.getProduct()
 
@@ -34,11 +34,13 @@ btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
 //const responseRegister = await User.register("/auth/register") 
 //console.log(responseRegister)
 
-import { User } from "./Controllers/Routers.js";
-import { ProductsControllers } from "./Controllers/products-control.js"
 
-await User.getMyProducts('/my/products')
-// ProductsControllers.productForm()
+/* import { ProductsControllers } from "./Controllers/products-control.js"
+
+
+ProductsControllers.productForm() */
+
+
 
 
 // const responseRegister = await User.register("/auth/register", {

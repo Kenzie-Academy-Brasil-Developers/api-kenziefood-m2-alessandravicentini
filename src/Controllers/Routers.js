@@ -5,12 +5,10 @@ const modal = document.querySelector('.modal')
 
 class User {
 
+    static infoUser = JSON.parse(localStorage.getItem('infoUser'))
+
     static url = 'https://kenzie-food-api.herokuapp.com'
 
-    static infoUser = {
-        token: {},
-        information: {}
-    }
 
     static async register(path, data) {
 
@@ -59,8 +57,7 @@ class User {
         console.log(response)
         
         localStorage.setItem('infoUser', JSON.stringify(dados))
-
-        this.infoUser.token = dados
+        
         
         if(dados.error){
 
@@ -75,42 +72,47 @@ class User {
             modal.style.display = 'flex'
             modal.innerHTML = 'Entrando...'
             setTimeout(() => {
-                //window.location.assign('./login.html')
+                window.location.assign('./admin.html')
             }, 2000);
             
+            
         }
-        this.infoUser.token = dados
+        
+        
     }
 
 
     static async getMyProducts(path) {
 
-        const infoUser = JSON.parse(localStorage.getItem('infoUser'))
-        console.log(infoUser)
         const response = await fetch(`${this.url}${path}`, {
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${infoUser}`
+                "Authorization": `Bearer ${this.infoUser}`
             }
         })
         const responseData = await response.json()
-        console.log(responseData)
+
+        localStorage.setItem('product', JSON.stringify(responseData))
+        /* saida */
+        
         ProductsList.createList(responseData)
+        
     }
 
 
     static async postMyProducts(path) {
 
-        fetch(`${this.url}${path}`, {
+        const response = await fetch(`${this.url}${path}`, {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.infoUser.token}`
+                "Authorization": `Bearer ${this.infoUser}`
             },
             "body": JSON.stringify(data)
         })
-        .then((res) => res)
+        const data    = await response.json()
+        console.log(data)
 
 
     }
@@ -131,17 +133,20 @@ class User {
     }
 
     static async deleteMyProducts(path, id) {
-        fetch(`${this.url}${path}:${id}`, {
+        const infoUser = JSON.parse(localStorage.getItem('infoUser'))
+        const response =  await fetch(`${this.url}${path}${id}`, {
             "method": "DELETE",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.infoUser.token}`
+                "Authorization": `Bearer ${infoUser}`
             }
 
         })
-        .then((res) => res)
+        const data    = await response
+        console.log(data)
 
     }
 
 }
+
 export { User }

@@ -1,12 +1,19 @@
+
+
+
+
 class ProductsList {
 
     static createList(data) {
-        const ul = document.querySelector('ul')
-        console.log(ul)
-        data.forEach(product => {
-            const {imagem, nome, descricao, categoria} = product
+        //ProductsList.createList(responseData)
+        console.log(data)
+        
+        const ul = document.querySelector('.ul-list')
+        
 
-            console.log(data)
+        data.forEach(product => {
+            const {imagem, nome, descricao, categoria, id} = product
+
             const li = document.createElement('li')
 
             li.innerHTML = `
@@ -19,16 +26,32 @@ class ProductsList {
                 <p>${descricao}</p> 
 
                 <div>
-                    <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                    <button id='${id}'  class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button id='${id}'  class="btn-delete"><i class="fa-solid fa-trash"></i></button>
                 </div>
                 `
 
             
-
+            
             ul.appendChild(li)
-        })
+
+
+        }) 
+
+        const btnDeleteProduct = document.querySelectorAll('.btn-delete')
+        btnDeleteProduct.forEach(btn => btn.addEventListener('click',  () =>{
+
+            console.log(btn.id)
+            User.deleteMyProducts('/my/products/', btn.id)
+            
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000);
+            
+        }))
+
     }
+    
 }
 
 export {ProductsList}
