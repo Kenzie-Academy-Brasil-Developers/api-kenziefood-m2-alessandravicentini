@@ -11,7 +11,7 @@ await Api.getProduct()
 const searchBar   = document.querySelector('.search')
 searchBar.addEventListener('keyup' , Filter.searchBar)
 
-const btnTodos = document.querySelectorAll('.btn-todos')
+const btnTodos = document.querySelector('.btn-todos')
 btnTodos.addEventListener('click', Filter.listAll)
 
 const buttons = document.querySelectorAll('.btn-filter button')
