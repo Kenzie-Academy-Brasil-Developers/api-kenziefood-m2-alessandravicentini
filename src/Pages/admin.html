@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/reset.css">
+    <link rel="stylesheet" href="../Style/style-adminPage.css">
+    
+    <script src="https://kit.fontawesome.com/0626b21294.js" crossorigin="anonymous"></script>
+    <title>KenzieFood Admin</title>
+</head>
+<body>
+
+        <header class="cabecalho">
+            <img class="logo-img" src="../Style/img/logo.png" alt="">
+            
+            <input class="filter-search" type="text" placeholder="Pesquisar por produto">
+        </header>
+   <main>
+        <div>
+        <section class="btn-filter-admin">
+
+                <button class="btn-todos">Todos</button>
+
+                <button class="btn-panificadora">Panificadora</button>
+
+                <button class="btn-frutas">Frutas</button>
+
+                <button class="btn-bebidas">Bebidas</button>
+
+
+            <button class="addProduct">Adicionar novo produto</button>
+
+        </section>
+        </div>
+
+        <section class="productsList">
+
+            <ul class="ul-list">
+                <li id="list-header">
+                    <p></p>
+                    <p>Produto</p>
+                    <p>Categorias</p>
+                    <p>Descrição</p>
+                    <p>Ações</p>
+
+                </li>
+            </ul>
+
+        </section>        
+
+    </main>
+            
+    <script type="module" src="./../Controllers/Admin.js" ></script>
+    
+</body>
+</html>

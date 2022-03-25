@@ -1,0 +1,106 @@
+
+/*css editando formulario de cadastro*/
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:850px;
+}
+
+
+.container-cadastro{
+    
+    margin: 0 auto;
+    width: 280px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff2252d3;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(47, 47, 47, 0.541);
+}
+.container-cadastro > h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: azure;
+}
+.container-cadastro > form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 220px;
+}
+.container-cadastro > form > input {
+    width: 200px;
+    height: 30px;
+    margin-top: 15px;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+
+}
+.container-cadastro > form > button{
+    position: absolute;
+    margin-top: 340px;
+    border: none;
+    color: rgb(27, 27, 27);
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px 1px rgba(47, 47, 47, 0.541);
+}
+.container-cadastro > form > button:hover{
+    cursor: pointer;
+
+}
+.container-cadastro > a{
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-family:'Nunito', sans-serif; 
+}
+.container-cadastro > a:hover{
+    text-decoration: underline;
+}
+
+/*pagina de login*/
+.titulo-login{
+    position: absolute;
+    margin-bottom: 190px;
+}
+.spanFood{
+    font-family:'Nunito', sans-serif; 
+    color:  rgba(0, 0, 0, 0.87);
+}
+
+.home{
+    position: absolute;
+    margin-bottom: 300px;
+}
+.modal{
+    margin: auto;
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: #36323288;
+    width:100%;
+    height: 100px;
+    color: aliceblue;
+    text-shadow: 5px 5px 10px black ;
+    margin-top: 400px;
+    font-weight: 700;
+    font-size: 35px;
+    font-family:'Nunito', sans-serif;
+}
+
