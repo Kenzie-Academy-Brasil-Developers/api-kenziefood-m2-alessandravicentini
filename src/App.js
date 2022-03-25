@@ -1,9 +1,9 @@
 
-import { ProductsList } from "./Models/productsList-model.js";
+//import { ProductsList } from "./Models/productsList-model.js";
 import {Api}  from "./Api/Api.js"
 import {Filter}         from "./Controllers/Filter.js"
 import { Vitrine } from "./Models/Vitrine.js";
-//import { User } from "./Controllers/Routers.js";
+import { User } from "./Controllers/Routers.js";
 //import {Register} from "./Models/Register.js"
 await Api.getProduct()
 
@@ -11,35 +11,34 @@ await Api.getProduct()
 const searchBar   = document.querySelector('.search')
 searchBar.addEventListener('keyup' , Filter.searchBar)
 
-const btnListAll  = document.querySelector('.btn-todos')
-btnListAll.addEventListener('click', Filter.listAll)
+const btnTodos = document.querySelector('.btn-todos')
+btnTodos.addEventListener('click', Filter.listAll)
 
-const btnBakery   = document.querySelector('.btn-panificadora')
-btnBakery.addEventListener('click', Filter.listBakery)
+const buttons = document.querySelectorAll('.btn-filter button')
+const filterButtons = Array.prototype.slice.call(buttons).slice(1,4)
 
-const btnFruit    = document.querySelector('.btn-frutas')
-btnFruit.addEventListener("click", Filter.listFruit)
-
-const btnDrink    = document.querySelector('.btn-bebidas')
-btnDrink.addEventListener('click', Filter.listDrink)
+filterButtons.forEach((button) => {
+	button.addEventListener('click', Filter.listFiltered)
+})
 
 
 const btnAdd      = document.querySelectorAll('.btn-cart__add')
 btnAdd.forEach(btn => btn.addEventListener('click', Vitrine.totalPrice))
 
-
-/**/
+/*******************/
 
 
 
 //const responseRegister = await User.register("/auth/register") 
 //console.log(responseRegister)
 
-import { User } from "./Controllers/Routers.js";
-import { ProductsControllers } from "./Controllers/products-control.js"
 
-await User.getMyProducts('/my/products')
-// ProductsControllers.productForm()
+/* import { ProductsControllers } from "./Controllers/products-control.js"
+
+
+ProductsControllers.productForm() */
+
+
 
 
 // const responseRegister = await User.register("/auth/register", {

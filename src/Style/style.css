@@ -67,7 +67,9 @@
     left: 117px;
     top: 122px;
 }
-.btn-todos{
+
+.btn-filter button{
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -75,19 +77,13 @@
     padding: 15px 20px;
 
 
-    width: 88px;
+    width: fit-content;
     height: 48px;
     left: 117px;
     top: 122px;
     border: none;
-    /* color-primary */
     
     background-color: #E9ECEF;
-    /* color-primary
-    color: #F8F9FA;
-    border: 1.5px solid #FF2253;
-    background: #FF2253;
-    */
     
     box-sizing: border-box;
     border-radius: 32px;
@@ -99,98 +95,21 @@
     line-height: 19px;
     text-align: center;
 
-    /* grey-1 */
-    
-
-}
-
-
-.btn-panificadora{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 20px;
-
-    width: 170px;
-    height: 48px;
-    left: 233px;
-    top: 122px;
-
-    /* product-2 */
-    background: #FFF7F4;
-
-    /* product-2 */
-    border: 1.5px solid #FFF7F4;
-    box-sizing: border-box;
-    border-radius: 32px;
-    cursor: pointer;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    
-    /* grey-4 */
     color: #212529;
-}
-.btn-frutas{
 
-    width: 123px;
-    height: 48px;
-    left: 431px;
-    top: 122px;
-    
-    /* product-3 */
-    background: #FFF1F4;
-    
-    /* product-3 */
-    border: 1.5px solid #FFF1F4;
-    box-sizing: border-box;
-    border-radius: 32px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    
-    /* grey-4 */
-    color: #212529;
-    cursor: pointer;
 }
-.btn-bebidas{
-    width: 136px;
-    height: 48px;
-    left: 582px;
-    top: 122px;
-    
-    /* product-4 */
-    background: #F3EEF5;
-    
-    /* product-4 */
-    border: 1.5px solid #F3EEF5;
-    box-sizing: border-box;
-    border-radius: 32px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    cursor: pointer;
-    /* grey-4 */
-    color: #212529;
-}
-.hover{
-    
+.btn-filter button:active{
     color: #F8F9FA;
     border: 1.5px solid #FF2253;
     background: #FF2253;
 }
+.btn-filter button:focus{
+    color: #F8F9FA;
+    border: 1.5px solid #FF2253;
+    background: #FF2253;
+}
+
 .container-vitrine{
     
     margin-left: 50px;
