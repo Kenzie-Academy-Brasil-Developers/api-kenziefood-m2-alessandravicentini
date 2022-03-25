@@ -20,11 +20,8 @@ class User {
             },
             "body":JSON.stringify(data)
         })
-        const dados = await response.json()
-        console.log(dados)
-        console.log(response)
         
-        if(response.status == 409){
+        if (response.status == 409){
             modal.style.display = 'flex'
             modal.innerHTML = 'User Already Exists!'
             
@@ -32,7 +29,7 @@ class User {
                 window.location.assign('./login.html')
             }, 2000);
             
-        }else{
+        } else {
             modal.style.display = 'flex'
             modal.innerHTML = 'Email Cadastrado com sucesso!'
             setTimeout(() => {
@@ -52,14 +49,13 @@ class User {
             },
             "body": JSON.stringify(data)
         })
+
         const dados = await response.json()
-        console.log(dados)
-        console.log(response)
         
         localStorage.setItem('infoUser', JSON.stringify(dados))
         
         
-        if(dados.error){
+        if (dados.error){
 
                 modal.style.display = 'flex'
                 modal.innerHTML = 'Email ou Password incorreto!'
@@ -68,13 +64,12 @@ class User {
                 window.location.assign('./login.html')
             }, 2000);
             
-        }else{
+        } else {
             modal.style.display = 'flex'
             modal.innerHTML = 'Entrando...'
             setTimeout(() => {
                 window.location.assign('./admin.html')
             }, 2000);
-            
             
         }
         
@@ -94,7 +89,6 @@ class User {
         const responseData = await response.json()
 
         localStorage.setItem('product', JSON.stringify(responseData))
-        /* saida */
         
         ProductsList.createList(responseData)
         
@@ -112,8 +106,7 @@ class User {
             "body": JSON.stringify(obj)
         })
         const data    = await response.json()
-        console.log(data)
-
+        return data
 
     }
 
@@ -143,7 +136,7 @@ class User {
 
         })
         const data    = await response
-        console.log(data)
+        return data
 
     }
 

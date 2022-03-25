@@ -1,14 +1,13 @@
 import { ProductsControllers } from "../Controllers/products-control.js"
 import { User } from "../Controllers/Routers.js"
+import { Filter } from "../Controllers/Filter.js"
 
 class ProductsList {
 
     static createList(data) {
-        //ProductsList.createList(responseData)
             
         const ul = document.querySelector('.ul-list')
         
-
         data.forEach(product => {
             const {imagem, nome, descricao, categoria, id} = product
 
@@ -28,12 +27,8 @@ class ProductsList {
                     <button id='${id}'  class="btn-delete"><i class="fa-solid fa-trash"></i></button>
                 </div>
                 `      
-                
-            
-            
+
             ul.appendChild(li)
-
-
         }) 
 
         const btnDeleteProduct = document.querySelectorAll('.btn-delete')
@@ -43,36 +38,34 @@ class ProductsList {
             
             User.deleteMyProducts('/my/products/', btn.id)
             
-            /* setTimeout(() => {
+            setTimeout(() => {
                 window.location.reload()
-            }, 2000); */
+            }, 2000); 
             
         }))
 
         const btnEditProduct = document.querySelectorAll('.btn-edit')
         btnEditProduct.forEach(btn => btn.addEventListener('click', (event) => { 
-            const li = event.currentTarget.parentNode.parentNode
+            
             const productInfo = JSON.parse(localStorage.getItem('product'))
-            let qualquer = []
+            const productInfoForm = []
 
             productInfo.forEach(product => { 
                 
                 if(event.currentTarget.id == product.id) {
-                    qualquer.push(product)
+                    productInfoForm.push(product)
                     
-                   ProductsControllers.formEditProduct(qualquer)
+                   ProductsControllers.formEditProduct(productInfoForm)
+
+                   
                 }
+                
                 
             })
                      
             
         }))
 
-    
-        
-        
-        
-        
     }
     
 }

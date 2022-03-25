@@ -32,7 +32,7 @@ export class Register {
                 obj[name] = value
             }
         })
-        console.log(obj)
+        
         User.register('/auth/register',obj)
 
 

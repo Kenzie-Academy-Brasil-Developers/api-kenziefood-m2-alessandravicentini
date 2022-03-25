@@ -32,7 +32,7 @@ export class Vitrine{
                 const btnRemove =  document.createElement('button')
                 btnRemove.classList.add('btn-remove')
                 btnRemove.id = current.id
-                btnRemove.innerHTML  = '🗑️'//<i class="fa-solid fa-trash"></i>
+                btnRemove.innerHTML  = '🗑️'
                 btnRemove.addEventListener('click', Vitrine.removeCart)
 
                 const h4Categoria    = document.createElement('h4')
@@ -78,9 +78,10 @@ export class Vitrine{
                 
             }
         }
-        if(Vitrine.count > 0) {
+        
+        if (Vitrine.count > 0) {
                 Vitrine.count -= Vitrine.contador
-        }else{
+        } else {
                 Vitrine.count  = 0
         }
         spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`
@@ -155,6 +156,7 @@ export class Vitrine{
                 
             }
         })
+        
         Vitrine.qtdProducts()
         const spanPrice   = document.querySelector('.total-price')
         spanPrice.innerHTML = `${new Intl.NumberFormat('PT-BR', { style: 'currency', currency: 'BRL' }).format(Vitrine.count)}`

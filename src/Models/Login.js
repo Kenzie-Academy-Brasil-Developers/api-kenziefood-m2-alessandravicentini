@@ -32,7 +32,7 @@ export class Login {
             }
 
         })
-        console.log(obj)
+        
         await User.login('/auth/login',obj)
 
     }

@@ -10,17 +10,17 @@ class ProductsControllers {
         divForm.innerHTML = `
             <form>
                 <label for="input">Nome do Produto</label> <br>
-                <input type="text" name="nome"> <br>
+                <input type="text" name="nome" class="name-form"> <br>
                 <label for="input">Descrição</label> <br>
-                <input type="text" name="descricao"> <br>
+                <input type="text" name="descricao" class="description-form"> <br>
                 <label for="input">Categorias</label> <br>
-                <input type="checkbox" name="categoria" value="Panificadora"> <br>
-                <input type="checkbox" name="categoria" value="Frutas"> <br>
-                <input type="checkbox" name="categoria" value="Bebidas"> <br>
+                <input type="checkbox" name="categoria" value="Panificadora" class="checkbox-panificadora-form"> <br>
+                <input type="checkbox" name="categoria" value="Frutas" class="checkbox-frutas-form"> <br>
+                <input type="checkbox" name="categoria" value="Bebidas" class="checkbox-bebidas-form"> <br>
                 <label for="input">Valor do produto</label> <br>
-                <input type="text" name="preco"> <br>
+                <input type="text" name="preco" class="price-form"> <br>
                 <label for="input">Link da imagem</label> <br>
-                <input type="url" name="imagem"><br>
+                <input type="url" name="imagem" class="url-form"><br>
                 <button type="submit" class='register'>cadastrar</button>
             </form>  
         `
@@ -35,7 +35,6 @@ class ProductsControllers {
             const inputs = [...e.target]
             const obj = {}
 
-            console.log(inputs)
             inputs.forEach(current => {
                 if (current.name) {
                     const name = current.name
@@ -44,15 +43,13 @@ class ProductsControllers {
                     obj[name] = value
                 }
             })
-            console.log(obj)
+
             User.postMyProducts('/my/products', obj)
 
             setTimeout(() => {
                 window.location.reload()
             }, 2000)
         })
-        //ProductsControllers.postProduct(e)
-
 
     }
 
@@ -67,28 +64,32 @@ class ProductsControllers {
 
     static formEditProduct(productInfo) {
         const divForm = document.createElement('div')
+        divForm.classList.add('div-form')
 
         productInfo.forEach((element) => {
 
             const { id, nome, preco, categoria, descricao, imagem } = element
 
-
             divForm.innerHTML = `
             <form>
-                <label for="input"></label> <br>
-                <input type="text" name="nome" value="${nome}"> <br>
+                <label for="input">Nome do produto</label>
+                <input type="text" name="nome" value="${nome}" class="name-form"> 
                 <label for="input">Descrição</label> <br>
-                <input type="text" name="descricao" value="${descricao}"> <br>
-                <label for="input">Categorias</label> <br>
-                <input type="checkbox" name="categoria" value="${categoria}"> <br>
-                <input type="checkbox" name="categoria" value="${categoria}"> <br>
-                <input type="checkbox" name="categoria" value="${categoria}"> <br>
-                <label for="input">Valor do produto</label> <br>
-                <input type="text" name="preco" value="${preco}"> <br>
-                <label for="input">Link da imagem</label> <br>
-                <input type="url" name="imagem" value="${imagem}"><br>
+                <input type="text" name="descricao" value="${descricao}" class="description-form"> 
+                <div class="div-checkboxes">
+                <label for="input">Categorias</label>
+                <label><input type="checkbox" name="categoria" value="${categoria}" class="checkbox-panificadora-form">1</label> 
+                <input type="checkbox" name="categoria" value="${categoria}" class="checkbox-frutas-form"> 
+                <input type="checkbox" name="categoria" value="${categoria}" class="checkbox-bebidas-form"> 
+                </div>
+                <label for="input">Valor do produto</label> 
+                <input type="text" name="preco" value="${preco}" class="price-form"> 
+                <label for="input">Link da imagem</label> 
+                <input type="url" name="imagem" value="${imagem}" class="url-form">
+                <div class="buttons-form">
                 <button id="${id}" type="submit" class='edit'>Salvar Alterações</button>
-                <button id="${id}" class='cancel'>Salvar Alterações</button>
+                <button id="${id}" class='cancel'>Cancelar</button>
+                </div>
             </form>  
         `
 
@@ -107,15 +108,17 @@ class ProductsControllers {
                 const {name, value} = element
                 obj[name] = value
             })
-            console.log(obj)
-            User.pathMyProducts("/my/products/",id, obj )
+           
+            User.pathMyProducts("/my/products/",id, obj)
+
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000); 
         })
 
-        // static postProduct(){
-        //     console.log(oi)
-        // }
     }
-    deleteProduct() {
+
+    static deleteProduct() {
 
         const confirmMsg = document.createElement('div')
 
@@ -126,10 +129,8 @@ class ProductsControllers {
         const btnDeleteProduct = document.querySelector('.btn-delete')
         btnDeleteProduct.addEventListener('click', e => { Modal.createModal(confirmMsg, 'modalDeleteProduct') })
 
+
     }
-
-
-
 }
 
 
