@@ -7,16 +7,14 @@ export class Filter {
         
         const data     = JSON.parse(localStorage.getItem('products'))
         const dataProd = [...data]
-
         
         const searchString = event.target.value.toLowerCase()
 
-        let product = dataProd.filter((current) => {
+        const product = dataProd.filter((current) => {
             return current.nome.toLowerCase().includes(searchString)
         })
 
         Vitrine.listarVitrine(product)
-        ProductsList.createList(product)
 
     }
 
@@ -42,10 +40,45 @@ export class Filter {
         })
 
         Vitrine.listarVitrine(output)
+    }
+
+    static adminSearchBar(event){
+        
+        const data     = JSON.parse(localStorage.getItem('product'))
+        const dataProd = [...data]
+        
+        const searchString = event.target.value.toLowerCase()
+
+        const product = dataProd.filter((current) => {
+            return current.nome.toLowerCase().includes(searchString)
+        })
+
+        ProductsList.createList(product)
+
+    }
+
+    static adminListAll(){
+
+        const data     = JSON.parse(localStorage.getItem('product'))
+        ProductsList.createList(data)
+    
+    }
+
+    static adminListFiltered(event){
+        event.preventDefault()
+
+        const target   = event.target.innerText
+            
+        const data     = JSON.parse(localStorage.getItem('product'))
+        const dataProd = [...data]
+
+        const output = dataProd.filter(current => {
+            if (target == current.categoria){
+                return current.categoria
+            }
+        })
+
         ProductsList.createList(output)
-
-
-
     }
 
 }
