@@ -1,12 +1,14 @@
 import { ProductsControllers } from "../Controllers/products-control.js"
 import { User } from "../Controllers/Routers.js"
-import { Filter } from "../Controllers/Filter.js"
 
 class ProductsList {
 
     static createList(data) {
-            
+
+        
         const ul = document.querySelector('.ul-list')
+        ul.innerHTML = ''
+        
         
         data.forEach(product => {
             const {imagem, nome, descricao, categoria, id} = product
