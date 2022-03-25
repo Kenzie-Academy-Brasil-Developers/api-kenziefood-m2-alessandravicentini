@@ -1,4 +1,5 @@
 import { Vitrine } from "../Models/Vitrine.js"
+import { ProductsList } from "../Models/productsList-model.js"
 
 export class Filter {
 
@@ -15,6 +16,7 @@ export class Filter {
         })
 
         Vitrine.listarVitrine(product)
+        ProductsList.createList(product)
 
     }
 
@@ -40,6 +42,9 @@ export class Filter {
         })
 
         Vitrine.listarVitrine(output)
+        ProductsList.createList(output)
+
+
 
     }
 

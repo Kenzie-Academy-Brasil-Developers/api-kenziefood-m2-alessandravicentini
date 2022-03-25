@@ -137,6 +137,10 @@ li img{
     border-radius: 50%;
 }
 
+li button{
+    cursor: pointer;
+}
+
 span {
     display: flex;
 }
@@ -176,6 +180,16 @@ span p {
     padding: 9px;
     position: relative;
     cursor: pointer;
+    margin-right: 10px;
+}
+
+.productForm button.closeModal:active{
+    color: #F8F9FA;
+    background: #FF2253;
+}
+.productForm button.closeModal:focus{
+    color: #F8F9FA;
+    background: #FF2253;
 }
 
 
@@ -207,23 +221,74 @@ form{
     position: relative;
     border-radius: 12px;
     padding: 10px;
-
 }
 
+div label input {
+    margin-right:100px;
+ }
+ body {
+     font-family:sans-serif;
+ }
+ 
 .name-form, .description-form, .price-form, .url-form{
     width: 80%;
     align-self: center;
 }
 
-input[type="checkbox"]{
-    border: none;
+form input[type="text"]{
+    border-radius: 5px;
+    text-align: center;
+    height: 20px;
 }
+
+form input[type="checkbox"]{
+    margin: auto;
+}
+
+form input[type="url"]{
+    border-radius: 5px;
+    text-align: center;
+    height: 20px;
+}
+
+form button{
+
+    padding: 10px 20px;
+    width: fit-content;
+    border: none;
+    background-color: #E9ECEF;
+    box-sizing: border-box;
+    border-radius: 32px;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+
+    color: #212529;
+
+}
+
+form button:active{
+    color: #F8F9FA;
+    background: #FF2253;
+}
+form button:focus{
+    color: #F8F9FA;
+    background: #FF2253;
+}
+
+.register{
+    align-self: center;
+}
+
 
 .div-checkboxes{
     display: flex;
     flex-direction: row;
-    height: 50px;
-    border: none;
+    justify-content: space-around;
+    height: 30px;
 }
 
 .buttons-form{
@@ -232,6 +297,7 @@ input[type="checkbox"]{
     justify-content: center;
     align-items: center;
 }
+
 
 @media (min-width: 800px) {
     header {

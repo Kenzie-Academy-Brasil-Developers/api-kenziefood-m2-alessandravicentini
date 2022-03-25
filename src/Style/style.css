@@ -1,3 +1,42 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+
+
+    width: fit-content;
+    height: 48px;
+    left: 117px;
+    top: 122px;
+    border: none;
+    
+    background-color: #E9ECEF;
+    
+    box-sizing: border-box;
+    border-radius: 32px;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    color: #212529;
+}
+
+.login:active{
+    color: #F8F9FA;
+    border: 1.5px solid #FF2253;
+    background: #FF2253;
+}
+.login:focus{
+    color: #F8F9FA;
+    border: 1.5px solid #FF2253;
+    background: #FF2253;
+}
 
 .container-principal{
     width: 100%;
@@ -51,7 +90,7 @@
 }
 .cabecalho > a:hover{
     cursor: pointer;
-    text-decoration: underline;
+
 }
 
 /*editando botoes de filtrar*/
